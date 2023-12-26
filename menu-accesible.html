@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>Menú desplegable Accesible</title>    
+
+<style>
+
+#menu {
+    display: none;
+    background-color: #444;
+    padding: 0;
+    list-style: none;
+}
+
+#menu li {
+    margin: 0;
+    padding: 0;
+}
+
+#menu li a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#menu li a:focus {
+    background-color: #555;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <button id="menuButton" aria-label="Menú principal" aria-expanded="false" aria-controls="menu">
+        &#9776; Menú
+    </button>
+    <ul id="menu" role="menu" aria-hidden="true">
+        <li><a role="menuitem" tabindex="-1" href="#inicio">Inicio</a></li>
+        <li><a role="menuitem" tabindex="-1" href="#servicios">Servicios</a></li>
+        <li><a role="menuitem" tabindex="-1" href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    var menuButton = document.getElementById('menuButton');
+    var menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded', !expanded);
+        menu.setAttribute('aria-hidden', expanded);
+        toggleMenuDisplay();
+    });
+
+    function toggleMenuDisplay() {
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+});
+	
+</script>
+</body>	
+</html>
