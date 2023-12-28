@@ -6,29 +6,54 @@
     	<title>Menú desplegable Accesible</title>    
 
 <style>
+    html {
+        font-size: 100%; /* Esto es equivalente a 16px */
+    }
 
-#menu {
-    display: none;
-    background-color: #444;
-    padding: 0;
-    list-style: none;
-}
+    body {
+        font-family: Arial, sans-serif; /* Tipo de fuente general */
+        line-height: 1.5;
+    }
 
-#menu li {
-    margin: 0;
-    padding: 0;
-}
+    nav {
+        background-color: #0055A4; /* Azul oscuro */
+        color:  #AFEEEE;
+        padding: 10px;
+    }
 
-#menu li a {
-    color: white;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-}
+    #menuButton {
+        background-color: #0055A4;
+        color: #AFEEEE;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold; /* Texto en negrita */
+    }
 
-#menu li a:focus {
-    background-color: #555;
-}
+    #menuButton:focus {
+        outline: 2px solid cyan;
+    }
+
+    #menu {
+        display: none;
+        background-color: #0055A4;
+        padding: 0;
+        list-style: none;
+    }
+
+    #menu li a {
+        color: #AFEEEE;
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: bold; /* Texto en negrita */
+        font-size: 16px; /* Tamaño de fuente */
+        line-height: 1.5; /* Interlineado */
+    }
+
+    #menu li a:focus {
+        background-color: #003366; /* Azul más oscuro al enfocar */
+    }
 
 </style>
 </head>
