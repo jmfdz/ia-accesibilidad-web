@@ -21,7 +21,7 @@
         padding: 10px;
     }
 
-    #menuButton, #menuButton1 {
+    #menuButton {
         background-color: #0055A4;
         color: #AFEEEE;
         padding: 10px;
@@ -30,18 +30,15 @@
         font-weight: bold; /* Texto en negrita */
     }
 
-    #menu, #menu1 {
+    button:focus {
+        outline: 2px solid cyan !important;
+    }
+
+    #menu {
         display: none;
         background-color: #0055A4;
         padding: 0;
         list-style: none;
-    }
-
-    #menu1 a {
-        color: white;
-        display: block;
-        padding: 5px;
-        text-decoration: none;
     }
 
     #menu li a {
@@ -54,10 +51,10 @@
         line-height: 1.5; /* Interlineado */
     }
 
-    button:focus, a:focus {
-        outline: 2px solid cyan;
-        outline-offset: 2px;
+    #menu li a:focus {
+        background-color: #003366;
     }
+
 
 </style>
 </head>
@@ -65,41 +62,22 @@
 <body>
 
 <nav>
-    <button id="menuButton1" aria-label="Menú principal" aria-expanded="false" aria-controls="menu">&#9776; Menú</button>
-    <div id="menu1" role="menu" aria-hidden="true" style="display: none;">
-
-        <a role="menuitem" tabindex="-1" href="#inicio">Inicio</a>
-        <a role="menuitem" tabindex="-1" href="#inicio">Inicio</a>
-        <a role="menuitem" tabindex="-1" href="#inicio">Inicio</a>
-
-
-    </div>
-
-</nav>
-
-<p>---</p>
-
-<nav>
-
-
-
 
     <button id="menuButton" aria-label="Menú principal" aria-expanded="false" aria-controls="menu">
         &#9776; Menú
     </button>
-    <ul id="menu" role="menu" >
-        <li role="none"><a role="menuitem" tabindex="-1" href="#inicio">Inicio</a></li>
-        <li role="none"><a role="menuitem" tabindex="-1" href="#servicios">Servicios</a></li>
-        <li role="none"><a role="menuitem" tabindex="-1" href="#contacto">Contacto</a></li>
+    <ul id="menu" role="menu" aria-hidden="true">
+        <li><a role="menuitem" href="#inicio">Inicio</a></li>
+        <li><a role="menuitem" href="#servicios">Servicios</a></li>
+        <li><a role="menuitem" href="#contacto">Contacto</a></li>
     </ul>
 </nav>
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
-    var menuButton = document.getElementById('menuButton1');
-    var menu = document.getElementById('menu1');
-
+    var menuButton = document.getElementById('menuButton');
+    var menu = document.getElementById('menu');
 
     menuButton.addEventListener('click', function() {
         var expanded = this.getAttribute('aria-expanded') === 'true' || false;
